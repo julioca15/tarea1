@@ -51,6 +51,7 @@ try:
 
     data_ordenada['Clasificacion'] = data_ordenada['Conteo_ventas_mes'].apply(clasificar_ventas)
 
+
     # Ordenar los datos por ventaTotal
     data_ordenada=data_ordenada.sort_values(by='Costo_Total',ascending=False)
    # Ordenar los datos por nombre
