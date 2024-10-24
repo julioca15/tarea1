@@ -40,6 +40,17 @@ try:
                     'Jul_Uds', 'Ago_Uds', 'Sep_Uds', 'Oct_Uds', 'Nov_Uds', 'Dic_Uds']
     data_ordenada['Conteo_ventas_mes'] = data_ordenada[columnas_uds].gt(0).sum(axis=1)
 
+    # Clasificar según el conteo de ventas
+    def clasificar_ventas(conteo):
+        if conteo >=7:
+            return 'A'
+        elif conteo >=4:
+            return 'B'
+        else:
+            return 'C'
+
+    data_ordenada['Clasificacion'] = data_ordenada['Conteo_ventas_mes'].apply(clasificar_ventas)
+
     # Ordenar los datos por ventaTotal
     data_ordenada=data_ordenada.sort_values(by='Costo_Total',ascending=False)
    # Ordenar los datos por nombre
