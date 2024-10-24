@@ -51,6 +51,16 @@ try:
 
     data_ordenada['Clasificacion'] = data_ordenada['Conteo_ventas_mes'].apply(clasificar_ventas)
 
+# Asignar rotación según clasificación
+    def clasificar_rotacion(clasificacion):
+        if clasificacion == 'A':
+            return 'Alta rotación'
+        elif clasificacion == 'B':
+            return 'Media rotación'
+        else:
+            return 'Sin rotación'
+
+    data_ordenada['Tipo_Rotacion'] = data_ordenada['Clasificacion'].apply(clasificar_rotacion)
 
     # Ordenar los datos por ventaTotal
     data_ordenada=data_ordenada.sort_values(by='Costo_Total',ascending=False)
